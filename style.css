@@ -328,8 +328,6 @@ input[type="password"]:focus, input[type="email"]:focus {
 }
 
 .user-name {
-  width: 212px;
-  height: 34px;
   opacity: 0.8;
   font-family: GothamBold;
   font-size: 28px;
@@ -479,8 +477,6 @@ input[type="password"]:focus, input[type="email"]:focus {
 }
 
 .user-name-mobile {
-  width: 136px;
-  height: 21px;
   font-size: 18px;
   letter-spacing: 0.15px;
   top: 142px;
