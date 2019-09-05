@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Karlova Login Form</title>
+	<link rel="stylesheet" type="text/css" href="file:///C:/Users/karl/Desktop/Sasha%20test/style.css">
+</head>
+		<body class="background"> 
+		<main>
+			<img src="file:///C:/Users/karl/Desktop/Sasha%20test/img/w-mercury-development.svg" class="Logo">
+			<form method="POST" class="Login-form" accept-charset="UTF-8" action="file:///C:/Users/karl/Desktop/Sasha%20test/index.html#" id="Login-form">
+				<label class="Log-In">Log In</label>
+				<input type="email" name="E-Mail" placeholder="E-Mail" required="" class="Input-field" id="E-mail" value="">
+				<input type="password" name="Password" placeholder="Password" required="" class="Input-field" id="Password" value="">
+				<button type="submit" class="Login-button" value="Login" id="button">
+					Login
+				</button>
+				<p hidden="true" class="Error-message" id="Error-message">
+					<label class="Error-message-text"> E-Mail or password is incorrect </label>
+				</p>
+				<script type="text/javascript">
+					var button = document.getElementById("button"); 
+					button.addEventListener("click", function(e) {
+						e.preventDefault();
+						var xhr = new XMLHttpRequest();
+						var email = document.getElementById("E-mail").value;
+						var password = document.getElementById("Password").value;
+						var user = {
+							email,
+							password
+						}
+					  	var json = JSON.stringify(user);
+						xhr.open('POST','https://us-central1-mercdev-academy.cloudfunctions.net/login', true);
+						xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+						xhr.send(json);
+						xhr.onloadend = function() {
+  							if (xhr.status == 200) {
+  								var width = document.body.clientWidth;
+  								if (width>=320 && width<600) {
+  									location.href= "account_mobile.html"
+  								}
+  								else {location.href = "account.html";}
+							} else {
+  								document.getElementById("Login-form").className="Login-form-error";
+  								document.getElementById("button").className="Login-button-error";
+  								document.getElementById("Error-message").hidden=false;
+  								document.getElementById("E-mail").className="Input-error";
+  								document.getElementById("Password").className="Input-error";
+
+  								 							}						
+						};
+					})
+				</script>
+			</form>
+		</main>
+	</body></html>

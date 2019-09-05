@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>User account</title>
+		<link rel="stylesheet" type="text/css" href="style.css"> 
+	</head>
+	<body class="background">
+		<main>
+			<img src="img/w-mercury-development.svg" class="Logo">
+			<form class="User-account" accept-charset="UTF-8" action="#">
+				<img class="avatar" src="img/avatar.jpg">
+				<p align="center" class="user-name">
+					Helena Joseph
+				</p>
+				<button type="submit" class="Logout-button" value="Logout" id="button">
+					Logout
+				</button>
+				<script type="text/javascript">
+					var button = document.getElementById("button"); 
+					button.addEventListener("click", function(e) {
+						e.preventDefault();
+						location.href = "index.html";
+						})
+				</script>
+			</form>
+		</main>
+	</body>
